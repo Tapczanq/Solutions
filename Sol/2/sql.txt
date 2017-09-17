@@ -1,0 +1,12 @@
+1.
+Select c.Name, 
+FROM XF.Country c
+LEFT JOIN XF.City i ON c.CountryID= i.CountryID
+WHERE SUM(i.Population) >400 
+2.
+SELECT c.Name
+From XF.Country c
+RIGHT OUTER JOIN 
+(XF.City i RIGHT OUTER JOIN XF.Building b ON i.CityID=b.CityID) 
+ON c.CountryID = i.CountryID
+WHERE b.BuildingID is null
